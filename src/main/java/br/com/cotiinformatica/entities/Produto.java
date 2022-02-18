@@ -40,4 +40,5 @@ public class Produto {
 	
 	@Column(name = "descricao", length = 500, nullable = false)
 	private String descricao;
+	
 }

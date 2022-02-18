@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,6 +33,7 @@ public class ProdutoController {
 	
 	private static final String ENDPOINT = "/api/produtos";
 	
+	@CrossOrigin
 	@ApiOperation("Serviço para cadastro de produto.")
 	@PostMapping(value = ENDPOINT)
 	public ResponseEntity<String> cadastrarProduto(@RequestBody ProdutoPostRequest request) {
@@ -60,6 +62,7 @@ public class ProdutoController {
 		}
 	}
 	
+	@CrossOrigin
 	@ApiOperation("Serviço para atualização dos dados de um produto.")
 	@PutMapping(value = ENDPOINT)
 	public ResponseEntity<String> atualizarProduto(@RequestBody ProdutoPutRequest request) {
@@ -98,6 +101,7 @@ public class ProdutoController {
 		}
 	}
 	
+	@CrossOrigin
 	@ApiOperation("Serviço para exclusão de um produto.")
 	@DeleteMapping(value = ENDPOINT+"/{idProduto}")
 	public ResponseEntity<String> deletarProduto(@PathVariable Integer idProduto) {
@@ -132,6 +136,7 @@ public class ProdutoController {
 		}
 	}
 	
+	@CrossOrigin
 	@ApiOperation("Serviço para consultar todos os produtos da aplicação.")
 	@GetMapping(value = ENDPOINT)
 	public ResponseEntity<List<ProdutoGetResponse>> buscarProdutos() {
@@ -157,6 +162,7 @@ public class ProdutoController {
 				.body(response);
 	}
 	
+	@CrossOrigin
 	@ApiOperation("Serviço para consultar um produto pelo ID.")
 	@GetMapping(value = ENDPOINT+"/{idProduto}")
 	public ResponseEntity<ProdutoGetResponse> buscarProdutoPorId(@PathVariable Integer idProduto) {
